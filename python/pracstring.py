@@ -1,0 +1,1 @@
+print("Hello %steach %s"%("world\n","me"))

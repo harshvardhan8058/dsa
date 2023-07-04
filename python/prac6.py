@@ -1,0 +1,92 @@
+import turtle
+
+# create a turtle object
+t = turtle.Turtle()
+
+# set the turtle's speed and pen color
+t.speed(10)
+t.pencolor("#000")
+
+# draw the character's head
+t.begin_fill()
+t.fillcolor("#FFDAB9")
+t.circle(100)
+t.end_fill()
+
+# draw the character's eyes
+t.penup()
+t.goto(-50, 50)
+t.pendown()
+t.begin_fill()
+t.fillcolor("#FFF")
+t.circle(25)
+t.end_fill()
+t.penup()
+t.goto(50, 50)
+t.pendown()
+t.begin_fill()
+t.fillcolor("#FFF")
+t.circle(25)
+t.end_fill()
+t.penup()
+t.goto(-50, 55)
+t.pendown()
+t.begin_fill()
+t.fillcolor("#000")
+t.circle(10)
+t.end_fill()
+t.penup()
+t.goto(50, 55)
+t.pendown()
+t.begin_fill()
+t.fillcolor("#000")
+t.circle(10)
+t.end_fill()
+
+# draw the character's mouth
+t.penup()
+t.goto(-30, 0)
+t.pendown()
+t.pencolor("#000")
+t.left(45)
+t.forward(30)
+t.right(90)
+t.forward(30)
+t.left(90)
+t.forward(30)
+t.right(90)
+t.forward(30)
+t.left(45)
+
+# draw the character's hair
+t.penup()
+t.goto(-80, 150)
+t.pendown()
+t.begin_fill()
+t.fillcolor("#000")
+t.left(45)
+t.forward(50)
+t.right(90)
+t.forward(50)
+t.right(90)
+t.forward(50)
+t.right(90)
+t.forward(50)
+t.right(135)
+t.forward(70)
+t.right(135)
+t.forward(50)
+t.right(90)
+t.forward(50)
+t.right(90)
+t.forward(50)
+t.right(90)
+t.forward(50)
+t.right(45)
+t.end_fill()
+
+# hide the turtle cursor
+t.hideturtle()
+
+# keep the window open until it's closed
+turtle.done()

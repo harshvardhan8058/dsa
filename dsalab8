@@ -1,0 +1,97 @@
+// preorder postorder and inorder wala
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+struct node
+{
+    int data;
+    struct node *left;
+    struct node *right;
+};
+struct node *root_node = NULL;
+
+void taking_inputs(int data)
+{
+    struct node *temp = (struct node *)malloc(sizeof(struct node));
+    temp->data = data;
+    temp->left = NULL;
+    temp->right = NULL;
+    if (root_node == NULL)
+    {
+        root_node = temp;
+    }
+    else
+    {
+        struct node *current = root_node;
+        struct node *parent = NULL;
+        while (1)
+        {
+            parent = current;
+            if (data < parent->data)
+            {
+                current = current->left;
+                if (current == NULL)
+                {
+                    parent->left = temp;
+                    return;
+                }
+            }
+            else
+            {
+                current = current->right;
+                if (current == NULL)
+                {
+                    parent->right = temp;
+                    return;
+                }
+            }
+        }
+    }
+}
+void preorder(struct node *root_node)
+{
+    if (root_node != NULL)
+    {
+        printf("%d ", root_node->data);
+        preorder(root_node->left);
+        preorder(root_node->right);
+    }
+}
+void inorder(struct node *root_node)
+{
+    if (root_node != NULL)
+    {
+        inorder(root_node->left);
+        printf("%d ", root_node->data);
+        inorder(root_node->right);
+    }
+}
+void postorder(struct node *root_node)
+{
+    if (root_node != NULL)
+    {
+        postorder(root_node->left);
+        postorder(root_node->right);
+        printf("%d ", root_node->data);
+    }
+}
+int main()
+{
+    int n;
+    int data;
+    printf("how much nodes do you want\n");
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++)
+    {
+        printf("enter your elements ");
+        scanf("%d", &data);
+        taking_inputs(data);
+    }
+    printf("preorder traversal is ");
+    preorder(root_node);
+    printf(" inorder traversal is ");
+    inorder(root_node);
+    printf(" postorder traversal is ");
+    postorder(root_node);
+    return 0;
+}
